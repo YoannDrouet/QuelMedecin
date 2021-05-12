@@ -1,0 +1,1 @@
+Deuxième TP de POO, test sur la création de classe
