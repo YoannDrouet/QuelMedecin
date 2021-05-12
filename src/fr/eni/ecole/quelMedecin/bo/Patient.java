@@ -1,6 +1,8 @@
 package fr.eni.ecole.quelMedecin.bo;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 /**
  * Classe Patient
@@ -138,7 +140,7 @@ public class Patient {
         System.out.printf("Téléphone : %s%n", this.getNumeroDeTelephone());
         System.out.printf("Sexe %s%n", Character.toString(this.getSexe()));
         System.out.printf("Numéro de Sécurité sociale : %d%n", this.getNumeroSecuriteSociale());
-        System.out.printf("Date de naissance : %s%n", this.getDateDeNaissance());
+        System.out.printf("Date de naissance : %s%n", this.dateDeNaissance.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)));
         System.out.printf("Commentaires : %s%n", this.getCommentaires());
     }
 }
