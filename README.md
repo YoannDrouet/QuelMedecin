@@ -1,1 +1,1 @@
-Deuxième TP de POO, test sur la création de classe
+TP quelMedecin fais à l'ENI dans le module de POO
