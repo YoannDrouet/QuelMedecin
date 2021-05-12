@@ -25,29 +25,17 @@ public class Patient {
     private long numeroSecuriteSociale;
     private LocalDate dateDeNaissance;
     private String commentaires;
+    private Adresse adresse;
 
-    /**
-     * Permet de construire une instance de la classe Patient
-     * @param nom
-     * @param prenom
-     * @param numeroDeTelephone
-     * @param sexe
-     * @param numeroSecuriteSociale
-     * @param dateDeNaissance
-     * @param commentaires
-     */
-    public Patient(String nom, String prenom, String numeroDeTelephone, char sexe, long numeroSecuriteSociale, LocalDate dateDeNaissance, String commentaires) {
+    public Patient(String nom, String prenom, String numeroDeTelephone, char sexe, long numeroSecuriteSociale, LocalDate dateDeNaissance, String commentaires, Adresse adresse) {
         this.nom = nom;
         this.prenom = prenom;
         this.numeroDeTelephone = numeroDeTelephone;
-        if (sexe == 'F') {
-            this.sexe = sexe;
-        }else{
-            this.sexe = 'M';
-        }
+        this.sexe = sexe;
         this.numeroSecuriteSociale = numeroSecuriteSociale;
         this.dateDeNaissance = dateDeNaissance;
         this.commentaires = commentaires;
+        this.adresse = adresse;
     }
 
     /**
@@ -142,5 +130,7 @@ public class Patient {
         System.out.printf("Numéro de Sécurité sociale : %d%n", this.getNumeroSecuriteSociale());
         System.out.printf("Date de naissance : %s%n", this.dateDeNaissance.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)));
         System.out.printf("Commentaires : %s%n", this.getCommentaires());
+        System.out.println("Adresse :");
+        this.adresse.afficher();
     }
 }
