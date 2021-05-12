@@ -19,15 +19,6 @@ public class Adresse {
     private int codePostal;
     private String ville;
 
-    /**
-     * Premier constructeur de la classe Adresse
-     * @param infosComplémentaires
-     * @param numero
-     * @param complement
-     * @param voie
-     * @param codePostal
-     * @param ville
-     */
     public Adresse(String infosComplémentaires, int numero, String complement, String voie, int codePostal, String ville) {
         this.infosComplémentaires = infosComplémentaires;
         this.numero = numero;
@@ -37,14 +28,6 @@ public class Adresse {
         this.ville = ville;
     }
 
-    /**
-     * Second constructeur de la classe Adresse, ne prend pas d'information complémentaire
-     * @param numero
-     * @param complement
-     * @param voie
-     * @param codePostal
-     * @param ville
-     */
     public Adresse(int numero, String complement, String voie, int codePostal, String ville) {
         this.infosComplémentaires = null;
         this.numero = numero;
@@ -54,42 +37,22 @@ public class Adresse {
         this.ville = ville;
     }
 
-    /**
-     *
-     * @return Les informations complémentaires de l'adresse
-     */
     public String getInfosComplémentaires() {
         return infosComplémentaires;
     }
 
-    /**
-     *
-     * @return Le numero de vois
-     */
     public int getNumero() {
         return numero;
     }
 
-    /**
-     *
-     * @return Le complement au numero
-     */
     public String getComplement() {
         return complement;
     }
 
-    /**
-     *
-     * @return La voie ainsi que son nom
-     */
     public String getVoie() {
         return voie;
     }
 
-    /**
-     *
-     * @return Un code postale à 5 chiffres sous forme de String
-     */
     public String getCodePostal() {
         String codePostal = String.valueOf(this.codePostal);
         while (codePostal.length()<5){
@@ -98,16 +61,16 @@ public class Adresse {
         return codePostal;
     }
 
-    /**
-     *
-     * @return La ville
-     */
     public String getVille() {
         return ville;
     }
 
     /**
-     * Affiche les caractéristiques d'une instance d'Adresse
+     * Affiche l'instance sous la forme de <br>
+     * Infomartions complémentaire (s'il y en a)<br>
+     * Numéro Complément<br>
+     * Nom de voie<br>
+     * Code postal Ville<br>
      */
     public void afficher(){
         if (infosComplémentaires != null){

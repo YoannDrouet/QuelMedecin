@@ -9,7 +9,9 @@ import java.util.Locale;
  *     <li><b>nom :</b> nom du medecin</li>
  *     <li><b>prenom :</b> prenom du medecin</li>
  *     <li><b>numeroDeTelephone :</b> numero de téléphone du medecin</li>
- *     <li><b>adresseMedecin :</b> L'adresse postale du medecin généraliste</li>
+ *     <li><b>adresse :</b> L'adresse postale du medecin généraliste</li>
+ *     <li><b>creneau :</b> Un tableau de créneau pouvant aller jusqu'à 15 par personne</li>
+ *     <li><b>nbCreneau :</b> Compteur permettant de savoir combien de créneau de rendes-vous possède un médecin</li>
  * </ul>
  * <ul>
  *     <li><b>tarif :</b> tarif de consultation, commun à tous les medecins</li>
@@ -35,53 +37,51 @@ public class MedecinGeneraliste {
         nbCreneau = 0;
     }
 
+    /**
+     * Vérifie que le nombre de créneau est inférieur à 15<br>
+     * Si c'est le cas rajoute le créneau à ce médecin<br>
+     * Sinon indique que l'on ne peut pas rajouter de créneau
+     * @param creneau
+     */
     public void ajouterCreneau(Creneau creneau){
-        this.creneau[this.nbCreneau] = creneau;
-        nbCreneau++;
+        if (nbCreneau<15){
+            this.creneau[this.nbCreneau] = creneau;
+            nbCreneau++;
+        }else{
+            System.out.println("Ce médecin à atteint son nombre de créneaux maximum");
+        }
     }
 
-    /**
-     *
-     * @return Le nom ddu medecin en majuscule
-     */
     public String getNom() {
         return nom;
     }
 
-    /**
-     *
-     * @return Le numéro de téléphone du medecin
-     */
     public String getNumeroDeTelephone() {
         return numeroDeTelephone;
     }
 
-    /**
-     *
-     * @return Le tarif des consultations
-     */
     public static int getTarif() {
         return tarif;
     }
 
-    /**
-     * Permet de modifier le numéro de téléphone du médecin
-     * @param numeroDeTelephone
-     */
     public void setNumeroDeTelephone(String numeroDeTelephone) {
         this.numeroDeTelephone = numeroDeTelephone;
     }
 
-    /**
-     * Change le tarif des consultations
-     * @param tarif
-     */
     public static void setTarif(int tarif) {
         MedecinGeneraliste.tarif = tarif;
     }
 
     /**
-     * Permet d'afficher toutes les caractéristiques d'une instance
+     * Affiche l'instance sous la forme de <br>
+     * NOM Prénom<br>
+     * Numéro de téléphone : XXXXXXXXXX<br>
+     * Tarif : XX€<br>
+     * Adresse :<br>
+     * Infomartions complémentaire (s'il y en a)<br>
+     * Numéro Complément<br>
+     * Nom de voie<br>
+     * Code postal Ville<br>
      */
     public void afficher(){
         System.out.printf("%s %s%n",this.getNom().toUpperCase(), this.prenom);
