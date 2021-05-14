@@ -5,38 +5,28 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 /**
- * Classe Patient
+ * Classe Patient qui hérite de la classe Personne
  * <ul>
- *     <li><b>nom :</b> nom du patient</li>
- *     <li><b>prenom :</b> prenom du patient</li>
- *     <li><b>numeroDeTelephone</b> numéro de téléphone du patient</li>
  *     <li><b>sexe :</b> le sexe du patient</li>
  *     <li><b>numeroSecuriteSociale :</b> le numéro de sécurité sociale du patient</li>
  *     <li><b>dateDeNaissance :</b> date de naissance du patient</li>
  *     <li><b>commentaire :</b> commentaire (allergie, maladie chronique,...)</li>
- *     <li><b>adresse :</b> L'adresse postale du patient</li>
  * </ul>
  * @author Yoann Drouet
  */
-public class Patient {
-    private String nom;
-    private String prenom;
-    private String numeroDeTelephone;
+public class Patient extends Personne{
+
     private char sexe;
     private long numeroSecuriteSociale;
     private LocalDate dateDeNaissance;
     private String commentaires;
-    private Adresse adresse;
 
-    public Patient(String nom, String prenom, String numeroDeTelephone, char sexe, long numeroSecuriteSociale, LocalDate dateDeNaissance, String commentaires, Adresse adresse) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.numeroDeTelephone = numeroDeTelephone;
+    public Patient(String nom, String prenom, String numeroDeTelephone, char sexe, long numeroSecuriteSociale, LocalDate dateDeNaissance, String commentaires , Adresse adresse) {
+        super(nom, prenom, numeroDeTelephone, adresse);
         this.sexe = sexe;
         this.numeroSecuriteSociale = numeroSecuriteSociale;
         this.dateDeNaissance = dateDeNaissance;
         this.commentaires = commentaires;
-        this.adresse = adresse;
     }
 
     public String getNom() {

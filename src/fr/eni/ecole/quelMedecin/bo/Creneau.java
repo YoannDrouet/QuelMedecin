@@ -14,16 +14,16 @@ import java.time.LocalTime;
 public class Creneau {
     private LocalTime horaireDebut;
     private int duree;
-    private MedecinGeneraliste medecin;
+    private Medecin medecin;
 
-    public Creneau(LocalTime horaireDebut, int duree, MedecinGeneraliste medecin) {
+    public Creneau(LocalTime horaireDebut, int duree, Medecin medecin) {
         this.horaireDebut = horaireDebut;
         this.duree = duree;
         this.medecin = medecin;
         this.medecin.ajouterCreneau(this);
     }
 
-    public MedecinGeneraliste getMedecin() {
+    public Medecin getMedecin() {
         return this.medecin;
     }
 
